@@ -1,6 +1,12 @@
 # sphealbot
 A custom Discord bot for Spheal With It.
 
+## Usage
+- `npm install`
+- Create `./config.json` file following template, matching your Discord Application and Gulid details
+- `node deploy_commands.js` 
+- `node .`
+
 ## TODO
 - Total Drama Island registration system
     - `tdparticipant DiscordUser` (A) register someone as a participant
