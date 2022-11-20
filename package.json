@@ -1,0 +1,15 @@
+{
+  "name": "sphealbot",
+  "version": "1.0.0",
+  "description": "A custom Discord bot for Spheal With It.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "discord",
+    "bot"
+  ],
+  "author": "wwongandy",
+  "license": "ISC"
+}
