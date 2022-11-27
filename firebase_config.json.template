@@ -1,0 +1,8 @@
+{
+	"apiKey": "your-api-key-goes-here",
+	"authDomain": "hello-world.firebaseapp.com",
+	"projectId": "hello-world",
+	"storageBucket": "hello-world.appspot.com",
+	"messagingSenderId": "876543210987",
+	"appId": "1:876543210987:foo:876543210987654321abcd"
+}

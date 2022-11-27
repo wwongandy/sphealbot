@@ -1,5 +1,5 @@
 # sphealbot
-A custom Discord bot for Spheal With It.
+A custom Discord bot for Spheal With It. Uses `discord.js` to connect with the Discord Developer API and the `firebase` SDK to connect with a Google Firebase database. 
 
 ## TODO
 - Everything
@@ -25,7 +25,8 @@ A custom Discord bot for Spheal With It.
 
 ## Usage
 - `npm install`
-- Create `./config.json` file following `./config.json.template` template, matching your Discord Application and Gulid details
+- Create `./discord_config.json` file following `./discord_config.json.template` template, matching your Discord Application and Gulid details
+- Create `./firebase_config.json` file following `./firebase_config.json.template` template, matching your Google Firebase details
 - `node deploy_commands.js` 
 - `node .`
 

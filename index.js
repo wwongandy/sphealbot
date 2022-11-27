@@ -2,29 +2,35 @@ console.log('Hello World');
 
 const fs = require('node:fs');
 const path = require('node:path');
+
 const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
-const { token } = require('./config.json');
+const { token } = require('./discord_config.json');
 
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const { initializeApp } = require("firebase/app");
+const firebaseConfig = require('./firebase_config.json');
 
-client.commands = new Collection();
+// Connection to Discord Bot's initialization code
+
+const discordClient = new Client({ intents: [GatewayIntentBits.Guilds] });
+
+discordClient.commands = new Collection();
 const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {
 	const filePath = path.join(commandsPath, file);
 	const command = require(filePath);
-	client.commands.set(command.data.name, command);
+	discordClient.commands.set(command.data.name, command);
 }
 
-client.once(Events.ClientReady, () => {
-	console.log('Ready!');
+discordClient.once(Events.ClientReady, () => {
+	console.log('Connected to Discord!');
 });
 
-client.on(Events.InteractionCreate, async interaction => {
+discordClient.on(Events.InteractionCreate, async interaction => {
 	if (!interaction.isChatInputCommand()) return;
 
-	const command = client.commands.get(interaction.commandName);
+	const command = discordClient.commands.get(interaction.commandName);
 
 	if (!command) return;
 
@@ -36,4 +42,8 @@ client.on(Events.InteractionCreate, async interaction => {
 	}
 });
 
-client.login(token);
+// Initialize Discord
+discordClient.login(token);
+
+// Initialize Firebase
+const firebaseApp = initializeApp(firebaseConfig);
